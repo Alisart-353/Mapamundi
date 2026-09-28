@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mapamundi Premium — El mundo en tus manos | Para exploradores de 8 a 10 años</title>
+<meta name="description" content="La aventura de geografía para niños de 8 a 10 años: explora el mapa, vuela tu avión y descubre el mundo con Mapin. Sin anuncios. Acceso por invitación.">
+<meta property="og:title" content="Mapamundi Premium — El mundo en tus manos">
+<meta property="og:description" content="Tu hijo explora, vuela y descubre el mundo. Sin anuncios, sin distracciones. Solicita tu acceso.">
+<meta name="theme-color" content="#060b18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='90' fill='%23060b18'/%3E%3Ccircle cx='256' cy='256' r='150' fill='none' stroke='%2322d3ee' stroke-width='26'/%3E%3Cpath d='M106 256h300M256 106c60 66 60 234 0 300M256 106c-60 66-60 234 0 300' fill='none' stroke='%2322d3ee' stroke-width='20'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#060b18; --carta:#0e1b2e; --linea:rgba(255,255,255,.09);
+  --vuelo:#22d3ee; --brujula:#f59e0b; --confeti:#a78bfa;
+  --tinta:#eaf2ff; --suave:rgba(234,242,255,.62);
+  --fd:'Baloo 2',cursive; --fb:'Nunito',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:
+  radial-gradient(110% 55% at 12% -5%,rgba(34,211,238,.14) 0,transparent 55%),
+  radial-gradient(90% 50% at 95% 12%,rgba(167,139,250,.13) 0,transparent 50%),
+  radial-gradient(80% 45% at 50% 108%,rgba(245,158,11,.08) 0,transparent 55%),
+  var(--noche);
+  color:var(--tinta);font-family:var(--fb);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:64px 0}
+h2{font-family:var(--fd);font-size:clamp(26px,4.6vw,38px);line-height:1.15;letter-spacing:-.01em}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:.18em;color:var(--vuelo);text-transform:uppercase}
+.sub{color:var(--suave);font-size:16.5px;max-width:560px}
+a{color:var(--vuelo)}
+:focus-visible{outline:3px solid var(--brujula);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
+
+/* ── Cabecera ── */
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:800;font-size:19px}
+.brand svg{flex:none}
+.top a.dm{font-size:14px;font-weight:800;color:var(--tinta);text-decoration:none;border:1px solid var(--linea);padding:9px 16px;border-radius:999px;transition:.2s}
+.top a.dm:hover{border-color:var(--vuelo);color:var(--vuelo)}
+
+/* ── Hero ── */
+.hero{position:relative;padding:34px 0 70px}
+.hero .eyebrow{display:block;margin-bottom:14px}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(34px,7.4vw,62px);line-height:1.06;letter-spacing:-.015em;max-width:640px}
+h1 .onda{background:linear-gradient(92deg,var(--vuelo) 10%,var(--confeti) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin:18px 0 26px;font-size:clamp(15.5px,2.4vw,18px)}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--brujula);color:#1a1205;font-family:var(--fd);font-weight:800;font-size:18px;padding:15px 30px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(245,158,11,.28);transition:transform .18s,box-shadow .18s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(245,158,11,.4)}
+.micro{font-size:13px;color:rgba(234,242,255,.8);margin-top:12px;font-weight:700}
+.micro b{color:var(--tinta)}
+
+/* ruta de vuelo — firma visual */
+.vuelo{position:absolute;inset:0;pointer-events:none;z-index:0}
+.vuelo path{stroke-dasharray:7 11;animation:rumbo 26s linear infinite}
+@keyframes rumbo{to{stroke-dashoffset:-1000}}
+.plane{position:absolute;font-size:0;animation:ala 9s ease-in-out infinite alternate}
+@keyframes ala{from{transform:translate(0,0) rotate(8deg)}to{transform:translate(46px,-22px) rotate(-4deg)}}
+
+/* captura en marco */
+.shot{position:relative;margin:52px auto 0;max-width:880px;border-radius:24px;overflow:hidden;border:1px solid var(--linea);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 6px rgba(255,255,255,.03);transform:rotate(-.6deg)}
+.shot img{display:block;width:100%}
+.shot .brillo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 30%);pointer-events:none}
+
+/* ── Franja de datos ── */
+.datos{border-block:1px solid var(--linea);background:rgba(255,255,255,.02);padding:18px 0}
+.datos ul{display:flex;flex-wrap:wrap;gap:8px 26px;list-style:none;justify-content:center}
+.datos li{font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.datos li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--vuelo)}
+.datos li:nth-child(2)::before{background:var(--confeti)}
+.datos li:nth-child(3)::before{background:var(--brujula)}
+.datos li:nth-child(4)::before{background:#34d399}
+
+/* ── Tarjetas ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px;margin-top:34px}
+.card{background:var(--carta);border:1px solid var(--linea);border-radius:20px;padding:24px 22px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(34,211,238,.4)}
+.card .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px}
+.card h3{font-family:var(--fd);font-size:19px;margin-bottom:6px}
+.card p{color:var(--suave);font-size:14.5px}
+
+/* ── Pasos ── */
+.pasos{counter-reset:paso;display:grid;gap:12px;margin-top:34px;max-width:640px}
+.paso{display:flex;gap:18px;align-items:flex-start;background:var(--carta);border:1px solid var(--linea);border-radius:18px;padding:20px 22px}
+.paso::before{counter-increment:paso;content:counter(paso);flex:none;width:40px;height:40px;border-radius:12px;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.35);color:var(--vuelo);font-family:var(--fd);font-weight:800;font-size:19px;display:grid;place-items:center}
+.paso b{display:block;font-size:16px;margin-bottom:3px}
+.paso p{color:var(--suave);font-size:14.5px}
+
+/* ── FAQ ── */
+.faq{max-width:680px;margin:30px auto 0}
+.faq details{background:var(--carta);border:1px solid var(--linea);border-radius:16px;padding:0 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:800;font-size:15.5px;padding:17px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--fd);font-size:22px;color:var(--vuelo);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--suave);font-size:14.5px;padding-bottom:18px}
+
+/* ── Formulario ── */
+.form-zona{background:linear-gradient(160deg,rgba(34,211,238,.09),rgba(167,139,250,.08)),var(--carta);border:1px solid rgba(34,211,238,.25);border-radius:26px;padding:clamp(26px,5vw,46px);max-width:640px;margin:0 auto;text-align:center}
+.form-zona h2{margin-bottom:8px}
+.form-zona .sub{margin:0 auto 24px}
+form{display:grid;gap:11px;text-align:left}
+label{font-size:13px;font-weight:800;color:var(--suave)}
+input{width:100%;padding:14px 16px;border-radius:13px;border:1px solid var(--linea);background:rgba(255,255,255,.05);color:var(--tinta);font:600 15.5px var(--fb)}
+input:focus{border-color:var(--vuelo);outline:none;box-shadow:0 0 0 3px rgba(34,211,238,.18)}
+button.cta{width:100%;justify-content:center;margin-top:6px}
+.ok-msg{display:none;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.4);color:#a7f3d0;border-radius:14px;padding:14px 16px;font-size:14.5px;font-weight:700}
+.ok-msg.show{display:block}
+
+/* ── Pie ── */
+footer{border-top:1px solid var(--linea);padding:30px 0 44px;text-align:center;color:var(--suave);font-size:13.5px}
+footer .ig{font-family:var(--fd);font-weight:800;font-size:16px;color:var(--tinta);display:block;margin-bottom:6px}
+
+/* ── Aparición al hacer scroll ── */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rev.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rev{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="top">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.5 3.2 3.5 14.8 0 18M12 3c-3.5 3.2-3.5 14.8 0 18"/></svg>
+      Mapamundi <span style="color:var(--brujula)">Premium</span>
+    </div>
+    <a class="dm" href="#solicitar">Solicitar acceso</a>
+  </nav>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <svg class="vuelo" width="100%" height="100%" viewBox="0 0 1440 700" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-60 620 C 300 480, 520 560, 760 380 S 1240 160, 1520 220" fill="none" stroke="rgba(34,211,238,.35)" stroke-width="2.5"/>
+    <path d="M-60 640 C 340 520, 560 590, 820 420 S 1280 220, 1520 260" fill="none" stroke="rgba(167,139,250,.22)" stroke-width="2"/>
+  </svg>
+  <div class="plane" style="left:62%;top:26%" aria-hidden="true">
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8"><path d="M2.5 19.5 21 12 2.5 4.5l3 6.2c.2.5.2 1.1 0 1.6l-3 6.2Z" fill="rgba(245,158,11,.18)"/><path d="M5.5 10.7 15 12l-9.5 1.3"/></svg>
+  </div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <span class="eyebrow rev">Para exploradores de 8 a 10 años</span>
+    <h1 class="rev">El mundo entero,<br>en las manos <span class="onda">de tu hijo.</span></h1>
+    <p class="sub rev">Mapamundi Premium convierte cualquier pantalla en una expedición: recorre el mapa, pilota tu avión y descubre países con Mapin, su guía de viaje. Juegan, exploran y aprenden geografía de verdad.</p>
+    <a class="cta rev" href="#solicitar">Solicitar acceso
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="micro rev"><b>Acceso por invitación</b> · Sin anuncios · Sin compras dentro de la app · Funciona sin internet después de abrirlo</p>
+
+    <figure class="shot rev">
+      <img src="https://www.genspark.ai/api/files/s/pSSZCuDk" alt="Pantalla de inicio de Mapamundi Premium: el Club de Exploradores con aventuras de mapa, juegos y misiones" loading="eager">
+      <span class="brillo"></span>
+    </figure>
+  </div>
+</header>
+
+<!-- ═══ DATOS ═══ -->
+<div class="datos rev">
+  <ul class="wrap">
+    <li>176 países y territorios</li>
+    <li>5 zonas de aventura</li>
+    <li>0 anuncios, 0 distracciones</li>
+    <li>100% en español</li>
+  </ul>
+</div>
+
+<!-- ═══ QUÉ HAY DENTRO ═══ -->
+<section class="wrap">
+  <span class="eyebrow rev">Qué van a encontrar</span>
+  <h2 class="rev">Un planeta entero para descubrir,<br>missión a misión.</h2>
+  <div class="grid">
+    <div class="card rev">
+      <div class="ico" style="background:rgba(34,211,238,.13)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.5 3.2 3.5 14.8 0 18"/></svg></div>
+      <h3>Mapa vivo</h3>
+      <p>Toca cualquier país y descubre su capital, su comida, sus animales y datos que sorprenden hasta a los adultos.</p>
+    </div>
+    <div class="card rev">
+      <div class="ico" style="background:rgba(167,139,250,.13)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M8 7l1.2-2.4h5.6L16 7M9 13h.01M15 13h.01M9.5 16.5h5"/></svg></div>
+      <h3>Mapin, su guía</h3>
+      <p>Un compañero que responde preguntas como «¿qué se come en Japón?» y les reta con misiones nuevas cada día.</p>
+    </div>
+    <div class="card rev">
+      <div class="ico" style="background:rgba(245,158,11,.13)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8"><path d="M2.5 19.5 21 12 2.5 4.5l3 6.2c.2.5.2 1.1 0 1.6l-3 6.2Z"/></svg></div>
+      <h3>Vuela tu avión</h3>
+      <p>Despega con el joystick y aterriza en el país que elijan. Cada aterrizaje es un descubrimiento para su pasaporte.</p>
+    </div>
+    <div class="card rev">
+      <div class="ico" style="background:rgba(52,211,153,.13)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8"><circle cx="12" cy="9" r="5.5"/><path d="m8.6 13.5-2.1 7 5.5-3 5.5 3-2.1-7"/></svg></div>
+      <h3>Medallas y niveles</h3>
+      <p>Memoria de banderas, retos y estrellas que suben de nivel a tu explorador. Aprender se siente como ganar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CÓMO SE ACTIVA ═══ -->
+<section class="wrap">
+  <span class="eyebrow rev">Cómo se activa</span>
+  <h2 class="rev">Tres pasos y a volar.</h2>
+  <div class="pasos">
+    <div class="paso rev"><div><b>Pide el acceso</b><p>Deja tu correo aquí abajo o escríbenos por Instagram. Reservamos un lugar para tu explorador.</p></div></div>
+    <div class="paso rev"><div><b>Te aprobamos y recibes tu clave</b><p>Revisamos cada solicitud personalmente. En minutos te llega tu clave de acceso.</p></div></div>
+    <div class="paso rev"><div><b>La pegan una vez y a jugar</b><p>Abren la app, ponen el correo y la clave, y el mundo queda desbloqueado en todos sus viajes.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="wrap">
+  <span class="eyebrow rev">Preguntas de padres</span>
+  <h2 class="rev" style="text-align:center">Lo que preguntan antes de volar.</h2>
+  <div class="faq">
+    <details class="rev"><summary>¿Es seguro para mi hijo?</summary>
+      <p>Sí. No hay anuncios, no hay compras dentro de la app, no hay chat con desconocidos y el progreso se guarda solo en su dispositivo. Nosotros tampoco pedimos datos personales del niño: solo tu correo y el apodo que quiera usar.</p></details>
+    <details class="rev"><summary>¿En qué dispositivos funciona?</summary>
+      <p>En el celular, la tablet o la computadora, desde el navegador. Se puede instalar en la pantalla de inicio como una app más, sin descargar nada de tiendas.</p></details>
+    <details class="rev"><summary>¿Por qué es por invitación?</summary>
+      <p>Porque lo entregamos por tandas y cuidamos que cada familia reciba soporte directo. Solicita tu lugar, te aprobamos y te enviamos tu clave de acceso.</p></details>
+    <details class="rev"><summary>¿Cuánto cuesta?</summary>
+      <p>Escríbenos por Instagram <b>@tu.usuario</b> y te contamos las opciones actuales: acceso por temporada y acceso de por año escolar, con todo el contenido incluido.</p></details>
+    <details class="rev"><summary>¿Y si cambia de dispositivo?</summary>
+      <p>Solo tiene que volver a poner su correo y su clave en el aparato nuevo. Su acceso viaja con él.</p></details>
+  </div>
+</section>
+
+<!-- ═══ FORMULARIO ═══ -->
+<section id="solicitar" class="wrap">
+  <div class="form-zona rev">
+    <span class="eyebrow">Únete a la expedición</span>
+    <h2>Solicita tu acceso</h2>
+    <p class="sub">Cuéntanos a quién va a darle alas y te aprobamos en minutos.</p>
+    <div class="ok-msg" id="ok">¡Solicitud recibida! Te aprobamos y te escribimos muy pronto con tu clave. Revisa tu correo y, mientras tanto, síguenos en Instagram.</div>
+    <form id="f" novalidate>
+      <div><label for="nm">Tu nombre</label><input id="nm" required maxlength="60" autocomplete="name" placeholder="María Pérez"></div>
+      <div><label for="em">Tu correo</label><input id="em" type="email" required maxlength="80" autocomplete="email" placeholder="maria@correo.com"></div>
+      <div><label for="cn">Apodo de tu explorador <span style="font-weight:600">(opcional)</span></label><input id="cn" maxlength="20" placeholder="Ej.: Super Leo"></div>
+      <button class="cta" id="bt" type="submit">Enviar solicitud</button>
+    </form>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span class="ig">@tu.usuario</span>
+  <p>Mapamundi Premium · Hecho para pequeños exploradores y sus familias.<br>Escríbenos por Instagram para cualquier duda sobre tu acceso.</p>
+</footer>
+
+<script>
+/* ── CONFIG: deja vacío si la landing se sirve desde el mismo servidor que server.js.
+   Si la subes a Netlify por separado, pon aquí la URL de tu servidor (sin / final). ── */
+var API_URL='';
+
+/* Aparición al hacer scroll */
+(function(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.rev').forEach(e=>e.classList.add('in'));return}
+  var io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rev').forEach(e=>io.observe(e));
+  /* Respaldo: si algo sigue oculto sin hacer scroll, se revela solo */
+  setTimeout(function(){document.querySelectorAll('.rev:not(.in)').forEach(e=>e.classList.add('in'))},2200);
+})();
+
+/* Formulario → API de accesos */
+(function(){
+  var f=document.getElementById('f'),bt=document.getElementById('bt');
+  f.onsubmit=function(ev){
+    ev.preventDefault();
+    var email=document.getElementById('em').value.trim();
+    var name=document.getElementById('nm').value.trim();
+    if(!name||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){bt.textContent='Revisa tu nombre y correo';setTimeout(()=>bt.textContent='Enviar solicitud',2200);return}
+    bt.disabled=true;bt.textContent='Enviando…';
+    fetch((API_URL||location.origin)+'/api/access/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,childName:document.getElementById('cn').value.trim()||name})})
+    .then(r=>r.json()).then(d=>{
+      if(d.ok){document.getElementById('ok').classList.add('show');f.style.display='none'}
+      else{bt.disabled=false;bt.textContent='Intentar de nuevo'}
+    })
+    .catch(()=>{bt.disabled=false;bt.textContent='Sin conexión — intenta de nuevo'});
+  };
+})();
+</script>
+</body>
+</html>
